@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>三栏左右定宽Position</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+    <script src="main.js"></script>
+    <style>
+        *{
+        margin: 0;
+        padding: 0;
+    }
+    .container{
+        padding: 0 300px;
+    }
+    #left{
+        background-color: aqua;
+        height: 62.5rem;
+        float: left;
+        width: 300px;
+        margin-left: -100%;
+        position: relative;
+        right: 300px;
+    }
+    #center{
+        background-color: blue;
+        height: 62.5rem;
+        width: 100%;
+        float: left;
+    }
+    #right{
+        background-color: aquamarine;
+        height: 62.5rem;
+        float: left;
+        width: 300px;
+        margin-right: -300px;
+
+    }
+    </style>
+</head>
+<body>
+    <div class="container"> 
+        <div id="center">center</div>
+        <div id="left">left</div>
+        <div id="right">right</div>
+    </div>
+
+</body>
+</html>

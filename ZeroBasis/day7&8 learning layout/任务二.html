@@ -49,6 +49,12 @@
         margin: 5px;
         background-color: white;
     }
+    .banner>div>div:hover{
+        padding-top:15px; 
+    }
+    nav{
+        border-bottom: #ccc 1px solid;
+    }
     .nav{
         width: 960px;
         margin: 0 auto;
@@ -63,7 +69,26 @@
     }
     .main{
         width: 960px;
+        margin: 0 auto;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+    .main>div{
+        padding: 80px;
+        margin: 5px;
+        border: #ccc 1px solid;
+        flex-grow: 1;
+    }
+    footer{
+        height: 100px;
+        background-color: #ccc;
+        display: flex;
+        justify-content: center;
         
+    }
+    footer>p{
+        line-height: 70px;
     }
     </style>
 </head>
@@ -89,12 +114,14 @@
             <div>4</div>
         </div>
     </div>
-    <div class="nav">
-        
-        <div> HOME</div>
-        <div>PROFLE</div>
-        <div>ABOUT</div>
-    </div>
+    <nav>
+        <div class="nav">
+            
+            <div> HOME</div>
+            <div>PROFLE</div>
+            <div>ABOUT</div>
+        </div>
+    </nav>
     <div class="main">
         <div>This is Content1</div>
         <div>MaybeContent2</div>
@@ -107,5 +134,8 @@
         <div>Content9</div>
         <div>Content10</div>
     </div>
+    <footer>
+        <p>&copy;2018&nbsp;ife.baidu.com</p>
+    </footer>
 </body>
 </html>
