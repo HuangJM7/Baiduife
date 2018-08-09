@@ -1,0 +1,107 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+}
+
+a {
+    color: #b7c0cd;
+    text-decoration: none;
+}
+
+.iconnav {
+    background-color: #1d2531;
+    display: flex;
+    width: 100px;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+    padding-top: 10px;
+}
+
+.iconnav>a>img {
+    margin: 10px;
+}
+
+.iconnav>div {
+    display: flex;
+    flex-grow: 1;
+    flex-direction: column-reverse;
+    padding-bottom: 20px;
+}
+
+.nav {
+    height: 100vh;
+    background-color: #222c3c;
+    width: 300px;
+    color: white;
+    padding: 30px;
+}
+
+.nav>div>div>h4 {
+    color: #5b6779;
+    display: inline;
+    font-weight: normal;
+}
+.news {
+    display: inline-block;
+    background-color: #289cf4;
+    width: 30px;
+    border-radius: 10px;
+    text-align: center;
+    float: right;
+    line-height: 20px;
+    color: white;
+}
+.danger{
+    display: inline-block;
+    background-color: #f15034;
+    width: 20px;
+    border-radius: 10px;
+    text-align: center;
+    float: right;
+    line-height: 20px;
+    font-weight: 800;
+    color: white;
+}
+.nav>div>div {
+    margin-top: 10px;
+    font-size: 14px;
+    font-family: "ProximaNova";
+}
+
+.float {
+    float: right;
+}
+.menu{
+    margin-bottom: 20px;
+}
+.Products{
+    padding-top: 10px;
+    border-top: 1px solid #5b6779;
+    margin-bottom: 20px;
+}
+.Products>div>div{
+    margin-top: 15px;
+    font-size: 14px;
+    font-family: "ProximaNova";
+}
+.Dashboard{
+    padding-top: 10px;
+    border-top: 1px solid #5b6779;
+}
+.main{
+    flex-grow: 1;
+    flex-wrap: wrap;
+}
+.top{
+
+}
+
+h2{
+    display: inline-block;
+}
