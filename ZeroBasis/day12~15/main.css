@@ -6,6 +6,7 @@
 
 body {
     display: flex;
+    overflow: hidden;
 }
 
 a {
@@ -47,8 +48,9 @@ a {
     display: inline;
     font-weight: normal;
 }
+
 .news {
-    display: inline-block;
+    display: block;
     background-color: #289cf4;
     width: 30px;
     border-radius: 10px;
@@ -57,8 +59,9 @@ a {
     line-height: 20px;
     color: white;
 }
-.danger{
-    display: inline-block;
+
+.danger {
+    display: block;
     background-color: #f15034;
     width: 20px;
     border-radius: 10px;
@@ -68,6 +71,7 @@ a {
     font-weight: 800;
     color: white;
 }
+
 .nav>div>div {
     margin-top: 10px;
     font-size: 14px;
@@ -77,31 +81,155 @@ a {
 .float {
     float: right;
 }
-.menu{
+
+.menu {
     margin-bottom: 20px;
 }
-.Products{
+
+.Products {
     padding-top: 10px;
     border-top: 1px solid #5b6779;
     margin-bottom: 20px;
 }
-.Products>div>div{
+
+.Products>div>div {
     margin-top: 15px;
     font-size: 14px;
     font-family: "ProximaNova";
 }
-.Dashboard{
+
+.Dashboard {
     padding-top: 10px;
     border-top: 1px solid #5b6779;
 }
-.main{
+
+.main {
     flex-grow: 1;
     flex-wrap: wrap;
 }
-.top{
 
+.top {
+    height: 70px;
+    border-bottom: 1px solid #e6e9ec;
+    flex-grow: 1;
 }
 
-h2{
+.top>h2 {
+    font-size: 24px;
+    font-family: "ProximaNova";
+    color: rgb(53, 64, 82);
+    line-height: 70px;
+    padding-left: 20px;
+}
+
+.topright {
+    height: 70px;
+    float: right;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 230px;
+    padding-right: 15px;
+}
+
+.topright>a>h3 {
+    color: #5eb4f5;
+}
+
+h2 {
     display: inline-block;
+}
+
+.row {
+    display: flex;
+}
+
+.left {
+    width: 400px;
+    border-right: 1px solid #e6e9ec;
+}
+
+.right {
+    background-color: #289cf4;
+    height: 100px;
+    flex-grow: 1;
+}
+
+/*搜索框*/
+
+.search {
+    position: relative;
+    border-bottom: 1px solid #e6e9ec;
+}
+
+.search>form>input {
+    margin: 15px;
+    width: 90%;
+    border: 1px solid #e6e9ec;
+    padding: 10px;
+    outline: none;
+}
+
+.search>form>button {
+    border: none;
+    background-color: white;
+    position: absolute;
+    top: 25px;
+    right: 30px;
+    outline: none;
+}
+
+.contacts {
+    overflow: auto;
+}
+
+.contact {
+    padding: 20px;
+    height: 150px;
+    border-bottom: 1px solid #e6e9ec;
+}
+
+.contact>div {
+    display: flex;
+    align-items: center;
+}
+
+.contactname {
+    font-size: 16px;
+    font-family: "ProximaNova";
+    color: rgb(35, 153, 241);
+    margin-left: 15px;
+}
+
+.company {
+    font-size: 14px;
+    font-family: "ProximaNova";
+    color: rgb(181, 181, 181);
+    margin-left: 15px;
+}
+
+.time {
+    flex-grow: 1;
+    text-align: right;
+    color: rgb(127, 143, 164);
+    font-size: 14px;
+}
+  
+
+.stalk {
+    margin-top: 10px;
+    height: 40px;
+    overflow: hidden;
+    line-height: 20px;
+    font-size: 14px;
+    font-family: "ProximaNova";
+    color: rgb(88, 93, 104);
+}
+.newtalk{
+    background-color: #289cf4;
+    padding: 2px 6px;
+    border-radius: 50%;
+    text-align: center;
+    color: white;
+    
 }
