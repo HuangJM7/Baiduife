@@ -38,7 +38,7 @@ a {
 .nav {
     height: 100vh;
     background-color: #222c3c;
-    width: 300px;
+    min-width: 300px;
     color: white;
     padding: 30px;
 }
@@ -147,10 +147,11 @@ h2 {
 .left {
     width: 400px;
     border-right: 1px solid #e6e9ec;
+    flex-grow: 0;
+    flex-shrink: 0;
 }
 
 .right {
-    background-color: #289cf4;
     height: 100px;
     flex-grow: 1;
 }
@@ -214,7 +215,6 @@ h2 {
     color: rgb(127, 143, 164);
     font-size: 14px;
 }
-  
 
 .stalk {
     margin-top: 10px;
@@ -225,11 +225,70 @@ h2 {
     font-family: "ProximaNova";
     color: rgb(88, 93, 104);
 }
-.newtalk{
+
+.newtalk {
     background-color: #289cf4;
-    padding: 2px 6px;
+    width: 70px;
     border-radius: 50%;
     text-align: center;
     color: white;
-    
+}
+
+.righttop {
+    display: flex;
+    border-bottom: 1px solid #e6e9ec;
+    height: 69px;
+    align-items: center;
+}
+
+.righttop>h4 {
+    flex-grow: 1;
+    font-size: 18px;
+    font-family: "ProximaNova";
+    color: rgb(88, 93, 104);
+    line-height: 69px;
+    padding-left: 20px;
+}
+
+.righttop>div {
+    border: 1px solid #e6e9ec;
+    padding: 7px;
+    border-radius: 5px;
+    margin: 20px;
+}
+
+.righttop>p {
+    font-size: 14px;
+    font-family: "ProximaNova";
+    color: rgb(86, 104, 138);
+    padding-left: 10px;
+    border-left: 2px solid #e6e9ec;
+    height: 30px;
+    line-height: 30px;
+}
+
+.arrow {
+    padding: 3px;
+}
+.conversation{
+    overflow: auto;
+}
+.talk{
+    margin: 20px;
+    display: flex;
+    padding-right: 10px;
+}
+.portrait{
+    padding: 0 20px;
+}
+.talktime{
+    display: inline-block;
+    font-size: 14px;
+    font-family: "ProximaNova";
+    color: rgb(127, 143, 164);
+    padding-bottom: 6px;
+}
+  
+.name{
+    display: inline-block;
 }
