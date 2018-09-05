@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>IFE ECMAScript</title>
+</head>
+
+<body>
+    <input id="first-number" type="number" value="0" placeholder="第一个数字">
+    <input id="second-number" type="number" value="0" placeholder="第二个数字">
+    <button id="add-btn">加</button>
+    <button id="minus-btn">减</button>
+    <button id="times-btn">乘</button>
+    <button id="divide-btn">除</button>
+    <p id="result">运算结果</p>
+    <script>
+        var res = document.getElementById("result");
+        var fnum = document.getElementById("first-number");
+        var snum = document.getElementById("second-number");
+        if ((fnum.type !== "number") || (snum.type !== "number"))
+        // if ( isNaN(fnum) == false || isNaN(snum) == false)
+        {
+            console.log("这不是数字");
+
+        } else {
+            document.getElementById("add-btn").onclick = function () {
+                res.innerHTML = fnum.value * 1 + snum.value * 1
+            };
+            document.getElementById("minus-btn").onclick = function () {
+                res.innerHTML = fnum.value * 1 - snum.value * 1
+            };
+            document.getElementById("times-btn").onclick = function () {
+                res.innerHTML = (fnum.value * 1) * (snum.value * 1)
+            };
+            document.getElementById("divide-btn").onclick = function () {
+                if (snum.value === 0) {
+                    console.log("除数为0");
+                } else
+                    res.innerHTML = (fnum.value * 1) / (snum.value * 1)
+            };
+        }
+    </script>
+</body>
+
+</html>
