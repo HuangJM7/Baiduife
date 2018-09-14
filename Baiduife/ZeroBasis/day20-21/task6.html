@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+    <script src="main.js"></script>
+    <style>
+        .picture {
+            background-image: url("face.jpg");
+            background-repeat: no-repeat;
+            background-position:0px -0px;
+            width: 500px;
+            height: 480px;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="picture">
+
+    </div>
+    <script>
+        var pi=document.getElementsByClassName('picture')[0];
+        var num=0;
+        var zj=1;
+        var move=setInterval(function(){
+            
+            num+=zj;
+            var PX="0px  "+(-480*num)+"px";
+            pi.style.backgroundPosition=PX;
+            if(num==16||num==0){
+                zj*=-1;
+            }
+
+        },300);
+
+    </script>
+</body>
+
+</html>
