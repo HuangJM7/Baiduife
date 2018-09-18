@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+    <script src="main.js"></script>
+</head>
+
+<body>
+    <!-- 在页面中显示当前日期及时间，按秒更新
+        格式为 YYYY 年 MM 月 DD 日 星期 D HH:mm:ss
+        注意位数的补齐，比如：
+        -- 假设时间为2008年10月10日星期一的12点12分12秒，显示2008年10月10日星期一 12:12:12
+        -- 假设时间为2008年1月1日星期一的3点2分2秒，显示2008年01月01日星期一 03:02:02
+        编码过程中，我们希望你注意对函数的封装，尽量让一个函数就做一个事情，而不要把所有的功能、代码揉在一起：
+        
+        封装一个函数，来根据某个日期返回这一天是星期几
+        封装一个函数，把月、日、小时等出现个位数的情况前面补充0，补充为两位，比如1变为01
+        封装一个函数，把最后的日期时间，按照要求的格式进行包装
+        可能不止上面这些，尽可能地进行功能的解耦和拆解 -->
+    <p id="result"></p>
+    <p id="result2"></p>
+    <script>
+        var p = document.getElementById('result');
+        var p2 = document.getElementById('result2');
+        var weekday = ['天', '一', '二', '三', '四', '五', '六']
+        // num传入的数字，n需要的字符长度
+        function fix(num) {
+            return ("0000000000000000" + num).substr(-2);
+        }
+        var newtime = function () {
+            var Ntime = new Date();
+            var YYYY = Ntime.getFullYear();
+            var MM = fix(Ntime.getMonth() + 1);
+            var DD = fix(Ntime.getDate());
+            var D = Ntime.getDay();
+            var HH = fix(Ntime.getHours() + 1);
+            var mm = fix(Ntime.getMinutes() + 1);
+            var ss = fix(Ntime.getSeconds() + 1);
+            p.innerHTML = YYYY + "年" + MM + '月' + DD + '日 星期' + weekday[D] + '  ' + HH + ':' + mm + ':' + ss;
+        }
+        var weekday2 = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
+        var newtime2 = function () {
+            var Ntime = new Date();
+            var YYYY = Ntime.getFullYear();
+            var MM = fix(Ntime.getMonth() + 1);
+            var DD = fix(Ntime.getDate());
+            var D = Ntime.getDay();
+            var HH = fix(Ntime.getHours() + 1);
+            var mm = fix(Ntime.getMinutes() + 1);
+            var ss = fix(Ntime.getSeconds() + 1);
+            var AP = 'AM';
+            if (HH > 12) {
+                HH = fix(HH - 12);
+                AP = 'PM';
+            }
+            p2.innerHTML = YYYY + '-' + MM + '-' + DD + '  ' + weekday2[D] + '  ' + HH + ':' + mm + ':' + ss + ' ' +
+                AP;
+        }
+        setInterval(newtime, 1000);
+        setInterval(newtime2, 1000);
+    </script>
+</body>
+
+</html>

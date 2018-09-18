@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+    <script src="main.js"></script>
+</head>
+
+<body>
+    <input id="queue-input" type="text">
+    <p id="queue-cont">队列内容：apple-&gt;pear</p>
+    <button id="in-btn">入队</button>
+    <button id="out-btn">出队</button>
+    <button id="font-btn">打印队头元素内容</button>
+    <button id="empty-btn">判断队列是否为空</button>
+
+    <script>
+        var queue = ["apple", "pear"];
+        var Input = document.getElementById('queue-input'),
+            p = document.getElementById('queue-cont'),
+            InBtn = document.getElementById('in-btn'),
+            OutBtn = document.getElementById('out-btn'),
+            FBtn = document.getElementById('font-btn'),
+            EBtn = document.getElementById('empty-btn');
+        //判断字符是否为空的方法
+        function isEmpty(obj) {
+            if (typeof obj == "undefined" || obj == null || obj == "") {
+                return true;
+            } else {
+                return false;
+            }
+        }
+        InBtn.addEventListener("click", function () {
+            if (!isEmpty(Input.value)) {
+                queue.unshift(Input.value);
+            }
+            p.innerHTML = '队列内容：' + queue.join('-&gt;');
+            Input.value = "";
+        })
+        OutBtn.addEventListener("click", function () {
+            queue.pop();
+            p.innerHTML = "队列内容：" + queue.join('-&gt;');
+        })
+        FBtn.addEventListener("click", function () {
+            p.innerHTML = "队头内容：" + queue[queue.length - 1];
+        })
+        EBtn.addEventListener("click", function () {
+            if (queue.length == 0) {
+                p.innerHTML = "队列为空";
+            } else {
+                p.innerHTML = "队列不为空";
+            }
+        })
+    </script>
+</body>
+
+</html>

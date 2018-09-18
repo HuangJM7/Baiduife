@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+    <script src="main.js"></script>
+</head>
+
+<body>
+    <input id="stack-input" type="text">
+    <p id="stack-cont">栈内容：apple&lt;-pear</p>
+    <button id="push-btn">进栈</button>
+    <button id="pop-btn">退栈</button>
+    <button id="font-btn">打印栈顶元素内容</button>
+    <button id="empty-btn">判断栈是否为空</button>
+
+    <script>
+        var stack = ["apple", "pear"];
+        var Input = document.getElementById('stack-input'),
+            p = document.getElementById('stack-cont'),
+            Pushbtn = document.getElementById('push-btn'),
+            Popbtn = document.getElementById('pop-btn'),
+            Fbtn = document.getElementById('font-btn'),
+            Ebtn = document.getElementById('empty-btn');
+
+        function isEmpty(obj) {
+            if (typeof obj == "undefined" || obj == null || obj == "") {
+                return true;
+            } else {
+                return false;
+            }
+        }
+        Pushbtn.addEventListener("click", function () {
+            if (!isEmpty(Input.value)) {
+                stack.unshift(Input.value);
+            }
+            p.innerHTML = '栈内容：' + stack.join('&lt;-');
+            Input.value = '';
+        })
+        Popbtn.addEventListener("click", function () {
+            stack.shift();
+            p.innerHTML = '栈内容：' + stack.join('&lt;-');
+        })
+        Fbtn.addEventListener("click", function () {
+            p.innerHTML = '栈顶内容：' + stack[0];
+        })
+        Ebtn.addEventListener("click", function () {
+            if (stack.length == 0) {
+                p.innerHTML = '栈为空';
+            } else {
+                p.innerHTML = '栈不为空';
+            }
+        })
+    </script>
+</body>
+
+</html>
