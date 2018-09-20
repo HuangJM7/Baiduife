@@ -29,23 +29,43 @@
         var Ul = document.getElementById('email-sug-wrapper');
         window.onload = In.focus();
         In.addEventListener("input", function () {
-
             var tips = getTips(In);
             changeli(tips);
             showcontrol();
             // Ul.textContent= "";
         })
-        // var trim = function (tar) {
-        //     for (var i = 0; i < tar.length; i++) {
-        //         if (tar[0] == " " || tar.charCodeAt(0) == 12288) {
-        //             tar = tar.slice(1);
-        //         } else if (tar[tar.length - 1] == " " || tar.charCodeAt(tar.length - 1) == 12288) {
-        //             tar = tar.slice(0, tar.length - 2);
-        //         } else
-        //             break;
-        //     }
-        //     return tar;
-        // }
+        In.onkeyup = function getKeyCode(event) {
+            var keyNum = window.event ? event.keyCode : event.which;
+            console.log(keyNum);
+            var selected = document.getElementsByClassName('active')[0];
+            if (keyNum != 38 && keyNum != 40 && keyNum != 13) {
+                selectedReset();
+            } else {
+                selected.classList.remove('active');
+            }
+            if (keyNum == 38) {
+                if (selected != sugWrapper.firstChild) {
+                    selected.previousSibling.classList.add('active');
+                } else {
+                    sugWrapper.lastChild.classList.add('active');
+                }
+            }
+            if (keyNum == 40) {
+                if (selected != sugWrapper.lastChild) {
+                    selected.nextSibling.classList.add('active');
+                } else {
+                    sugWrapper.firstChild.classList.add('active');
+                }
+            }
+            if (keyNum == 13) {
+                inputDom.value = HtmlUtil.htmlDecode(selected.innerHTML);
+                listHide(sugWrapper);
+            }
+            if (keyNum == 27) {
+                inputDom.select();
+                listHide(sugWrapper);
+            }
+        }
         var getInput = function (obj) {
             var input = obj.value;
             return input.trim();
