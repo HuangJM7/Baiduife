@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+    <script src="ife31data.js"></script>
+</head>
+
+<body>
+    <select name="region" id="region-select">
+        <option selected="selected" style='display: none' disabled="disabled" value="">请选择</option>
+        <option value="华东">华东</option>
+        <option value="华南">华南</option>
+        <option value="华北">华北</option>
+    </select>
+    <select name="product" id="product-select">
+        <option selected="selected" style='display: none' disabled="disabled" value="">请选择</option>
+        <option value="手机">手机</option>
+        <option value="笔记本">笔记本</option>
+        <option value="智能音箱">智能音箱</option>
+    </select>
+    <div id="table-wrapper">
+    </div>
+
+
+    <script>
+        var regions = document.getElementById('region-select');
+        var products = document.getElementById('product-select');
+        regions.addEventListener('change', updateTable);
+        products.addEventListener("change", updateTable);
+
+        function updateTable() {
+            var table = document.getElementById('table-wrapper');
+            table.innerHTML = "";
+            var th = createHead();
+            table.appendChild(th);
+            var rows = insertRows();
+            rows.forEach((row) => {
+                table.appendChild(row);
+            })
+        }
+
+        function createHead() {
+            var tr = document.createElement('tr')
+            var header = ['商品', '地区', '1月', '2月', '3月', '4月', '5月', '6月', '7月', '8月', '9月', '10月', '11月', '12月']
+            for (var i = 0; i < 14; i++) {
+                var th = document.createElement('td')
+                th.innerText = header[i]
+                tr.appendChild(th)
+            }
+            return tr
+        }
+
+        function insertRows() {
+            var result = []
+            var values = getValues()
+            values.forEach((item) => {
+                var tr = document.createElement('tr')
+                var td = document.createElement('td')
+                td.innerText = item.product
+                tr.appendChild(td)
+                td = document.createElement('td')
+                td.innerText = item.region
+                tr.appendChild(td)
+                var sale = item.sale
+                sale.forEach((s) => {
+                    var td = document.createElement('td')
+                    td.innerText = s
+                    tr.appendChild(td)
+                })
+                result.push(tr)
+
+            })
+            return result
+        }
+
+        function getValues() {
+            result = []
+            // var selectRegion = document.querySelector('#region-select').value
+            // var selectProduct = document.querySelector('#product-select').value
+            var selectRegion = document.getElementById('region-select').value
+            var selectProduct = document.getElementById('product-select').value
+            var chooseRegion = (region) => selectRegion ? selectRegion == region : true
+            var chooseProduct = (product) => selectProduct ? selectProduct == product : true
+            sourceData.forEach((item) => {
+                if (chooseProduct(item.product) && chooseRegion(item.region)) result.push(item)
+            })
+            return result
+        }
+    </script>
+</body>
+
+</html>

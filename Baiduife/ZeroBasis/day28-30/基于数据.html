@@ -13,10 +13,6 @@
             background-color: antiquewhite;
             width: 120px;
         }
-        .active{
-            background-color: rgb(214, 65, 90);
-            width: 120px;
-        }
     </style>
 </head>
 
@@ -31,81 +27,16 @@
         ];
         var In = document.getElementById('email-input');
         var Ul = document.getElementById('email-sug-wrapper');
+        // 增加一个变量，用于存储当前选中的提示Li的序号
+        var Index=0;
         window.onload = In.focus();
-        var selected = 0;
-        var selectedLi = null;
         In.addEventListener("input", function () {
+
             var tips = getTips(In);
             changeli(tips);
             showcontrol();
+            // Ul.textContent= "";
         })
-
-        // 需要修改一下之前的inputDom的输入监听
-        In.addEventListener("keyup", function (event) {
-            var event = event || window.event;
-            var keynum = event.keyCode;
-            console.log(keynum);
-            var list = Ul.querySelectorAll('li');
-            if (selectedLi == null) {
-                selectedLi = Ul.querySelector('li:first-child');
-                selectedLi.classList.add('active');
-            }
-            for (var i = 0; i < list.length; i++) {
-                if (list[i].getAttribute("class") == 'active') {
-                    selected = i;
-                    selectedLi = list[i];
-                }
-            }
-            if (keynum != 38 && keynum != 40 && keynum != 13) {
-                resetselected();
-            }
-            if (keynum == 38) {
-                selectedLi.classList.remove('active');
-                // 找到的Li不是第一个
-                if (selected != 0) {
-                    // 将它的前一个Li设为选中
-                    selectedLi = list[--selected];
-                    selectedLi.classList.add('active');
-                } else {
-                    // 将最后一个Li设为选中
-                    selectedLi = list[list.length - 1];
-                    selectedLi.classList.add('active');
-                    selected = list.length - 1;
-                }
-            }
-            // 按的是下键
-            if (keynum == 40) {
-                selectedLi.classList.remove('active');
-                // 找到的Li不是最后一个
-                if (selected != list.length - 1) {
-                    // 将它的下一个Li设为选中
-                    selectedLi = list[++selected];
-                    selectedLi.classList.add('active');
-                } else {
-                    // 将第一个Li设为选中
-                    selectedLi = list[0];
-                    selectedLi.classList.add('active');
-                    selected = 0;
-                }
-            }
-            // 按的是回车
-            if (keynum === 13) {
-                // 将找到的Li的HTML内容解码后填到input中
-                // 隐藏提示框
-                In.value = selectedLi.textContent;
-                showoff();
-            }
-        })
-        //重置选中状态
-        function resetselected() {
-            var select = document.getElementsByClassName('active')[0];
-            if (select == undefined) {
-                Ul.firstChild.classList.add('active');
-            } else if (select != Ul.firstChild && select != undefined) {
-                select.classList.remove('active');
-                Ul.firstChild.classList.add('active');
-            }
-        }
 
         var getInput = function (obj) {
             var input = obj.value;
