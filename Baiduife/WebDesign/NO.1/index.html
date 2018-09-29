@@ -1,1 +1,69 @@
+<!DOCTYPE html>
+<html>
 
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+    <script src="main.js"></script>
+    <style>
+        body {
+            text-align: center;
+        }
+
+        #result {
+            transition: color 1s;
+            padding: 20px 0;
+            margin: 20px 0 40px;
+            position: relative;
+        }
+
+        #result:after {
+            content: '';
+            display: block;
+            width: 0;
+            height: 3px;
+            /* margin 左右为auto 起到了从中间往两侧展开的功能  */
+            margin: 10px auto 40px auto;
+            background-color: red;
+            transition: width 2s ease;
+        }
+
+        #result.active {
+            color: red;
+        }
+        #result.active:after{
+            width: 80px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="result">前端学院</div>
+    <button id="btn">切换样式</button>
+    <script>
+        var btn = document.querySelector('#btn')
+        var result = document.querySelector('#result')
+        // 判断添加/删除样式名开关
+        var hasClass = false;
+        // 按钮点击逻辑
+        // btn.onclick = function () {
+        //     // 添加样式名触发过渡动效
+        //     if (!hasClass) {
+        //         hasClass = true;
+        //         return result.classList.add('active');
+        //     }
+        //     result.classList.add('active');
+        //     // 删除样式名
+        //     hasClass = false;
+        //     return result.classList.remove('active');
+        // }
+        btn.onclick=function(){
+            result.classList.toggle('active')
+        }
+    </script>
+</body>
+
+</html>
