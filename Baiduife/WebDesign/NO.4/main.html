@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+    <script src="main.js"></script>
+    <style>
+        .container {
+            margin: 50px auto;
+            height: 350px;
+            width: 250px;
+            perspective: 500;
+            -webkit-perspective: 500;/* Safari 和 Chrome */
+        }
+
+        .img {
+            height: 100%;
+            width: 100%;
+            background-image: url("任务四设计稿/正面.jpg");
+            background-repeat: no-repeat;
+            transition: background 0s linear 0.25s, transform 1s;
+        }
+
+        .container:hover .img {
+            background-image: url('任务四设计稿/反面.jpg');
+            transform: rotateY(180deg);
+
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <img src="" alt="" class="img">
+    </div>
+</body>
+
+</html>
