@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+    <script src="main.js"></script>
+    <style>
+        footer {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            position: fixed;
+            bottom: 0;
+            width: 100vw;
+        }
+
+        .img {
+            margin: 20px;
+        }
+
+        img {
+            width: 15vw;
+            height: 10vw;
+
+        }
+
+        .result {
+            width: 98vw;
+            /* height: 100%; */
+            height: 96vh;
+        }
+
+        @keyframes img1 {
+            from {
+                left: -5000px;
+            }
+
+            to {
+                left: 0;
+            }
+        }
+
+        @keyframes img2 {
+            from {
+                top: 350px;
+            }
+
+            to {
+                top: 0px;
+            }
+        }
+
+        @keyframes img3 {
+            from {
+                transform: scale(0.1);
+            }
+
+            to {
+                transform: scale(1.0);
+            }
+        }
+
+        @keyframes img4 {
+            from {
+                transform: scale(2.0);
+            }
+
+            to {
+                transform: scale(1.0);
+            }
+        }
+
+        @keyframes img5 {
+            0% {
+                transform: scale(0.1) rotate(-360deg);
+            }
+
+            100% {
+                transform: scale(1.0) rotate(0deg);
+            }
+        }
+
+        .animation1 {
+            animation: img1 0.5s ease-out;
+        }
+
+        .animation2 {
+            animation: img2 0.5s ease-out;
+        }
+
+        .animation3 {
+            animation: img3 1s ease-in;
+        }
+
+        .animation4 {
+            animation: img4 1s ease-out;
+        }
+
+        .animation5 {
+            animation: img5 0.7s ease-in-out;
+        }
+    </style>
+</head>
+
+<body>
+    <img class="result" src="img/1.jpg" alt="">
+    <footer>
+        <div class="img"><img src="img/1.jpg" alt=""></div>
+        <div class="img"><img src="img/2.jpg" alt=""></div>
+        <div class="img"><img src="img/3.jpg" alt=""></div>
+        <div class="img"><img src="img/4.jpg" alt=""></div>
+        <div class="img"><img src="img/5.jpg" alt=""></div>
+    </footer>
+
+    <script>
+        var result = document.querySelector('.result')
+        document.querySelectorAll('.img')[0].onclick = function () {
+            result.src = 'img/1.jpg';
+            result.classList = 'result animation1'
+
+        }
+        document.querySelectorAll('.img')[1].onclick = function () {
+            result.src = 'img/2.jpg'
+            result.classList = 'result animation2'
+        }
+        document.querySelectorAll('.img')[2].onclick = function () {
+            result.src = 'img/3.jpg'
+            result.classList = 'result animation3'
+        }
+        document.querySelectorAll('.img')[3].onclick = function () {
+            result.src = 'img/4.jpg';
+            result.classList = 'result animation4'
+        }
+        document.querySelectorAll('.img')[4].onclick = function () {
+            result.src = 'img/5.jpg';
+            result.classList = 'result animation5'
+        }
+    </script>
+</body>
+
+</html>
