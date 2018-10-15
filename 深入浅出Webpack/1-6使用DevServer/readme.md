@@ -19,7 +19,9 @@ npm i -D webpack@<version>
 # 安装最新体验版本
 npm i -D webpack@beta
 
+安装style-loader和css-loader
 npm i -D style-loader css-loader
+npm install --save-dev style-loader css-loader
 
 安装 DevServer：
 npm i -D webpack-dev-server
