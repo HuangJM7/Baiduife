@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./lib/vue.js"> </script>
+    <style>
+        [v-cloak]{
+        display: none;
+    }
+    </style>
+</head>
+
+<body>
+    <!-- vue实例控制的元素区域，就是view -->
+    <div id="app">
+        <input type="button" @click="Active" value="active">
+        <input type="button" value="stop" @click="Stop">
+        <p>{{msg}}</p>
+    </div>
+
+
+    <script>
+        //Vue对象，就是VM调度者
+        //对象中的数据就是M
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                msg: 'abcdefg',
+                intervalID: null //data上定义定时器ID
+            },
+            methods: {
+                Active() {
+                    //es5 this指向
+                    // var _this = this;
+                    // setInterval(
+                    //     function () {
+                    //         var start = _this.msg.substring(0, 1)
+                    //         var end = _this.msg.substring(1)
+                    //         _this.msg = end + start;
+                    //     },400
+                    // )
+                    //es6 箭头函数内部this指向外部this，解决this指向问题        
+
+                    if (this.intervalID != null) return;
+
+
+                    this.intervalID = setInterval(() => {
+                        var start = this.msg.substring(0, 1)
+                        var end = this.msg.substring(1)
+                        this.msg = end + start;
+                    }, 400)
+                },
+                Stop() {
+                    clearInterval(this.intervalID);
+                    this.intervalID = null
+
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>
