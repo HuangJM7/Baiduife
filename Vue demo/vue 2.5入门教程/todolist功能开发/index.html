@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+    <script src="vue.js"></script>
+</head>
+
+<body>
+    <!-- 挂载点，模板，实例之间的关系 -->
+    <!-- 数据，事件，与方法 -->
+    <!-- 属性绑定和双向数据绑定 -->
+    <!-- 计算属性和监听器 -->
+    <!-- v-if,v-show,v-for -->
+    <div id="root">
+        <div>
+            <input type="text" v-model="inputValue">
+            <button @click="handleClick">sumit</button>
+        </div>
+        <ul>
+            <!-- <li v-for="(item, index) in items" :key="index">{{item}} </li> -->
+            <!-- 父组件通过v-on绑定属性给子组件传参 -->
+            <todo-item v-for="(item, index) in items" :key="index" :content="item" 
+            :index="index" @delete="handleDelete"></todo-item>
+            <!-- 父组件监听事件 -->
+        </ul>
+    </div>
+
+    <script>
+        //全局组件
+        // Vue.component('todo-item',{
+        //     template:'<li>item</li>'
+        // })
+        //局部组件
+        var TodoItem = {
+            //子组件接受参数
+            props: ['content', 'index'],
+            //
+            template: '<li @click="handleClick">{{content}}</li>',
+            methods: {
+                handleClick: function () {
+                    //子组件通过this.$emit激发事件
+                    this.$emit('delete', this.index)
+                }
+            }
+        }
+
+        new Vue({
+            el: "#root",
+            components: {
+                'todo-item': TodoItem
+            },
+            data: {
+                inputValue: '',
+                items: []
+            },
+            methods: {
+                handleClick: function () {
+                    this.items.push(this.inputValue),
+                        this.inputValue = ""
+                },
+                handleDelete:function(index){
+                    this.items.splice(index,1)
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

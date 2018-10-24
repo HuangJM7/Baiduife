@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+    <script src="vue.js"></script>
+</head>
+
+<body>
+    <!-- 挂载点，模板，实例之间的关系 -->
+    <!-- 数据，事件，与方法 -->
+    <!-- 属性绑定和双向数据绑定 -->
+    <!-- 计算属性和监听器 -->
+    <!-- v-if,v-show,v-for -->
+    <div id="root">
+        <div v-show="show">123</div>
+        <button @click="handleClick">toggle</button>
+        <ul>
+            <li v-for="(item, index) in list" :key="index">{{item}}</li>
+        </ul>
+    </div>
+
+    <script>
+        new Vue({
+            el:"#root",
+            data:{
+                show:true,
+                list:[1,2,3]
+            },
+            methods:{
+                handleClick:function(){
+                    this.show=!this.show;
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>
