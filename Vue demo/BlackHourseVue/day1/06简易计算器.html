@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./lib/vue.js"> </script>
+</head>
+
+<body>
+    <!-- vue实例控制的元素区域，就是view -->
+    <div id="app">
+        <div>
+            <input type="text" v-model="n1" @keyup='run'>
+            <select name="" id="" v-model="opt" @click="run">
+                <option value="+">+</option>
+                <option value="-">-</option>
+                <option value="*">*</option>
+                <option value="/">/</option>
+            </select>
+            <input type="text" v-model="n2" @keyup='run'>
+            <input type="button" value="="  @click="run">
+            <input type="text" v-model="result" @click="run">
+        </div>
+    </div>
+
+
+    <script>
+        //Vue对象，就是VM调度者
+        //对象中的数据就是M
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                n1: 0,
+                n2: 0,
+                result: 0,
+                opt: '+',
+            },
+            methods: {
+                run() {
+                    //推荐，代码量大
+                    // switch (this.opt) {
+                    //     case '+':
+                    //         this.result = parseInt(this.n1) + parseInt(this.n2)
+                    //         break;
+                    //     case '-':
+                    //         this.result = parseInt(this.n1) - parseInt(this.n2)
+                    //         break;
+                    //     case '*':
+                    //         this.result = parseInt(this.n1) * parseInt(this.n2)
+                    //         break;
+                    //     case '/':
+                    //         this.result = parseInt(this.n1) / parseInt(this.n2)
+                    //         break;
+                    // }
+                    //eval拼接字符串,
+                    var codestr = 'parseInt(this.n1)' + this.opt+'parseInt(this.n2)'
+                    this.result=eval(codestr)
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>
