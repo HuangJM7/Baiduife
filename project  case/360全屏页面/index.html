@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="index.css">
+</head>
+
+<body>
+    <div id="360Page">
+        <div class="section first">
+            <div class="logo"></div>
+            <div class="text">
+                <img src="./img/text_1.png" alt="">
+                <img src="./img/text_2.png" alt="">
+                <img src="./img/text_3.png" alt="">
+                <img src="./img/text_4.png" alt="">
+                <img src="./img/text_5.png" alt="">
+                <img src="./img/text_6.png" alt="">
+                <img src="./img/text_7.png" alt="">
+                <img src="./img/text_8.png" alt="">
+            </div>
+            <div class="intro"></div>
+        </div>
+        <div class="section second">
+           <div class="shield">
+               <img src="./img/shield_1.png" alt="">
+               <img src="./img/shield_2.png" alt="">
+               <img src="./img/shield_3.png" alt="">
+               <img src="./img/shield_4.png" alt="">
+               <img src="./img/shield_5.png" alt="">
+               <img src="./img/shield_6.png" alt="">
+               <img src="./img/shield_7.png" alt="">
+               <img src="./img/shield_8.png" alt="">
+               <img src="./img/shield_9.png" alt="">
+           </div>
+           <div class="info">
+
+           </div>
+
+        </div>
+        <div class="section third">
+            <div class="info"></div>
+            <div class="circle">
+                <div class="rocket"></div>
+            </div>
+        </div>
+        <div class="section fourth">
+        <div class="search">
+            <div class="searchBar"></div>
+            <div class="searchText"></div>
+            <div class="searchResult"></div>
+        </div>
+        <div class="info"></div>
+        </div>
+        <div class="section fifth">
+            <h3>第五屏</h3>
+        </div>
+    </div>
+</body>
+<script src="./jquery.min.js"></script>
+<script src="./jquery.fullPage.min.js"></script>
+<script>
+    $(function () {
+        $('#360Page').fullpage({
+            sectionsColor: ['#0da5d6', '#2AB561', '#DE8910', '#16BA9D', '#0DA5D6'],
+            afterLoad: function (anchorLink, index) {
+                //当前屏添加样式类 current
+                $(".section").removeClass("current")
+                setTimeout(function(){
+                $(".section").eq(index-1).addClass("current")
+                },10)
+            }
+        });
+    });
+</script>
+
+</html>
